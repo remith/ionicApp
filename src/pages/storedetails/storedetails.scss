@@ -1,0 +1,74 @@
+page-storedetails {
+.name{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  .swiper-pagination-bullet {
+    background: black;
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #eb2324;
+    /*border:1px solid #fff;
+  	border-radius:50%;*/
+  }
+  .symbol{
+    float: right;
+    font-size: 1.2em;
+  }
+
+  #more-details{
+   font-size: 1.2em;
+   border-style: hidden;
+   text-align: center;
+   color:#117dd2;
+   /*color:#0086d9;*/
+   /*color: blue; */
+  }
+  ion-card-header{
+    text-align:center;
+  }
+  #productSlide{
+    width:100%;
+  }
+
+  .delivery{
+    font-size: 0.7em;
+  }
+
+  .cattext{
+    font-size: 0.6em; 
+  }
+
+  .butstyle{
+    height:2.5rem;
+    width:2.5rem;
+    border-radius: 5px;
+  }
+  .card-header-md {
+    font-size: 1.6rem;
+    padding: 0px;
+  }
+  .select{
+    max-width:100%;
+    text-align:left;
+  }
+  .catimg{
+    border-color: #eb2324;
+    border-radius: 20px;
+  }
+  .icheart{
+    font-size: 3rem;
+    margin-left:72%;
+  }
+  .iccart{
+    padding: 0px 0px 0px 0px;
+    margin-left:65%;
+  }
+  .colavatar{
+    max-width:20%;
+  }
+}
