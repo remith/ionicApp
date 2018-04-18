@@ -1,6 +1,6 @@
 <ion-content padding>
   <div *ngIf="!userProfile">
-    <div class="content">
+    <div class="logoimg " >
       <img src="assets/imgs/logo.png" />
     </div>
       <form no-validate [formGroup]="user" >
@@ -24,52 +24,35 @@
           </ion-col>
         </ion-row>
       </ion-item>
-      
-          <button ion-button round outline block (click)="facebookLogin()" color="facebook">Facebook</button>
+        <button ion-button round outline block (click)="facebookLogin()" color="facebook">Facebook</button>
  
+        <button ion-button round outline block (click)="openSignup()">Register</button>
 
 
 
-          <button ion-button round outline block (click)="openSignup()">Register</button>
-
-
-
-<!--  <ion-row>
-        <ion-col>
-          <button ion-button round outline block (click)="facebookLogin()" color="facebook">Facebook</button>
-        </ion-col>
-       -->
-<!--         <ion-col>
-          <button ion-button round outline block (click)="googleLogin()" color="facebook">Google</button>
-        </ion-col> 
-      </ion-row>-->
-      
-
-          <button ion-button round outline block (click)="gotoCart()">MY Cart</button>
 
       </form>
   </div>
  
   <div *ngIf="userProfile">
     <ion-card>
-      <p padding float-right (click)="logout()">
-        <ion-icon name="log-out" ></ion-icon>Logout</p>
-      <ion-card-header>{{userProfile.name}}</ion-card-header>
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <img [src]="userProfile.picture"/>
-            </ion-col>
-            <ion-col>
-              <p *ngIf="userProfile.email">{{userProfile.email}}</p>
-              <p *ngIf="userProfile.gender">{{userProfile.gender}}</p>
+        
+      <ion-card-header><p padding float-right (click)="logout()"><ion-icon name="log-out" ></ion-icon>Logout</p></ion-card-header>
+      <ion-card-content no-padding>
+        <ion-row no-padding>
+          <ion-col no-padding>
+            <img src="{{userProfile.picture}}"/>
+          </ion-col>
+          <ion-col>
+            <p>{{userProfile.name}}</p>
+            <p *ngIf="userProfile.email">{{userProfile.email}}</p>
+<!--          <p *ngIf="userProfile.gender">{{userProfile.gender}}</p>
               <p *ngIf="userProfile.role">Role: {{userProfile.role}}</p>
               <p *ngIf="userProfile.provider">
-              Auth Provider:{{userProfile.provider}}</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+              Auth Provider:{{userProfile.provider}}</p> -->
+          </ion-col>
+        </ion-row>
+        
       </ion-card-content>
     </ion-card>
     <!-- <ion-row>

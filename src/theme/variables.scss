@@ -85,5 +85,8 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+
+
+$font-family-md-base: "HelveticaNeueLTStd-UltLtEx";
+$font-family-ios-base: "HelveticaNeue-UltraLight";
+$font-family-wp-base: "HelveticaNeue-UltraLight";

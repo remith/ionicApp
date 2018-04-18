@@ -34,7 +34,7 @@ import { Device } from '@ionic-native/device';
 import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { Facebook } from '@ionic-native/facebook'
+import { Facebook } from '@ionic-native/facebook';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { SlicePipe } from '@angular/common';
 
@@ -84,11 +84,10 @@ import { SlicePipe } from '@angular/common';
     Device,
     LocationAccuracy,
     Diagnostic,
-    GooglePlus,
-    Facebook,
     LaunchNavigator,
-    SlicePipe
-
+    SlicePipe,
+    GooglePlus,
+    Facebook
   ]
 })
 export class AppModule {}

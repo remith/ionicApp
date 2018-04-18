@@ -1,12 +1,12 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let store of locations.data" >
-      <ion-avatar item-start>
+      <ion-avatar item-start (click)="itemTapped($event, store)">
         <img src="{{store.s_imageUrl}}">
       </ion-avatar>
-      <h2 (click)="itemTapped($event, store)">{{store.s_name | slice: 0:21}}{{store.s_name.length > 21 ? '..' : ''}} </h2>
+      <h2 (click)="itemTapped($event, store)">{{store.s_name | slice: 0:25}}{{store.s_name.length > 25 ? '..' : ''}} </h2>
       <ion-icon item-right  name="heart-outline" color="primary" (click)="favStore(store)"></ion-icon>
-      <p>{{store.distance}} kms</p>
+      <p (click)="itemTapped($event, store)">{{store.distance}} kms</p>
     </ion-item>
   </ion-list>
   <ion-fab bottom right>

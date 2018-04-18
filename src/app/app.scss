@@ -21,21 +21,27 @@
 		background-size: 100% 100%;
 	}
 	.scroll {
-	  text-align: center;
+	  	text-align: center;
 	}
 	
 	.normalToast { 
 		.toast-message { 
-			border-radius: 1.65rem !important;
+			border-radius: 2.65rem !important;
 			background: color($colors, lighter);
 			font-size: 1em;
 			color: #eb2324;
 			border:solid #eb2324 1px;
-			width: 20px;
 			text-align: center;
-		    padding: 10px 10px 7px ;
-		 }	 
-		.toast-md .toast-wrapper{
-			background: #fff !important;
-		}
+		   	margin-bottom :12px;
+		   	padding: 13px 16px 13px;
+		}	 
+	}
+	
+	.toast-md .toast-wrapper {
+    	position: absolute;
+    	z-index: 10;
+    	display: block;
+    	width: 90%;
+    	max-width: 700px;
+    	background:transparent;
 	}

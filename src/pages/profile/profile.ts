@@ -142,7 +142,7 @@ export class ProfilePage {
     this.global.set('theme', theme);
   }
 
-  logout(){
+/*  logout(){
     if(this.userProfile.provider=='facebook'){
       this.facebook.logout().then( res => {
         this.isLoggedIn = false;
@@ -157,6 +157,11 @@ export class ProfilePage {
       this.storage.remove('userProfile');
       this.navCtrl.setRoot(ProfilePage);
     }
+  }*/
+
+  logout(){
+    this.storage.remove('userProfile');
+    this.navCtrl.setRoot(ProfilePage);
   }
 
   googleLogin(){

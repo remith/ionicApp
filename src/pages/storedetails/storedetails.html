@@ -19,7 +19,7 @@
 
     <ion-card>
        <!-- <ion-card-header><b>Categories</b></ion-card-header>  -->
-        <ion-slides slidesPerView="6" spaceBetween="2">
+        <ion-slides slidesPerView="4" spaceBetween="2">
           <ion-slide *ngFor="let item of selectedItem?.category"
           (ionSlideDidChange)="changeSlide()">
             
@@ -52,16 +52,18 @@
 	   				</ion-avatar></ion-col>
 	   				<ion-col (click)="gotoProductDetails(item)" no-padding>
 		   				<p>{{item.p_name}}</p>
-              <div class="select">
-		   				<ion-item no-lines no-padding>
+
+<!--         <ion-item no-lines no-padding>
 				      	<ion-select>
-				       		<ion-option *ngFor="let i of item?.p_measurement" value="{{i.unit}}"
-                  [selected]="i.unit">
+				       		<ion-option *ngFor="let i of item?.p_measurement" value="{{i.unit}}" selected="item?.p_measurement">
                   {{i.unit}}
                   </ion-option>
 				       	</ion-select>
-			      	</ion-item>
-            </div>
+			      	</ion-item> -->
+              <div *ngFor="let i of item?.p_measurement">
+                <p>{{i.unit}}, Rs.<del>{{i.reg_price}}</del>&nbsp;{{i.sell_price}}</p>
+              </div>
+
 	   				</ion-col>
             <ion-col no-padding>
               <ion-icon class="icheart" name="md-heart-outline" color="primary" (click)="addToWishlist(item)"></ion-icon>

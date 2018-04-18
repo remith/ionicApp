@@ -39,7 +39,7 @@
 
 			<ion-row *ngIf='data'>
 				<div *ngFor='let datas of data'>
-					<button ion-button small round>{{datas.unit}}</button>
+					<button ion-button small round>{{datas.unit}} Rs.{{datas.sell_price}}</button>
 				</div>
 			</ion-row>
 			<ion-row *ngIf='data1'>

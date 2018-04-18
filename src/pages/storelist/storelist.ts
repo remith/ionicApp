@@ -36,51 +36,51 @@ export class StorelistPage {
     private toastCtrl:ToastController,
     private provider:RestProvider) {
 
-}
+  }
 
-locationcheck() {
-  this.loading = this.loadingCtrl.create({
-       content: 'Please wait...'
-    });
-     this.loading.present();
-  /*alert("check location  is CALLED:");*/
-  this.diagnostic.isLocationEnabled().then(
-    (isAvailable) => {
-        if(!isAvailable){
-          this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
-                () =>{
-                    this.location = JSON.stringify(this.locations.load());
-                    this.loading.dismiss();
-                    },
-               error => alert('Error requesting location permissions'+ error)
-            );  
-        }
-        else
-          {
-
-            this.location = JSON.stringify(this.locations.load()); 
-            this.loading.dismiss(); 
-            // alert('location already enable ');
-          }
-        }).catch( e => {
-          console.log(e);
-          alert('Enable location ' + JSON.stringify(e));
+  locationcheck() {
+    this.loading = this.loadingCtrl.create({
+         content: 'Please wait...'
       });
-}
-   ionViewDidLoad(){
-    this.locationcheck();
+       this.loading.present();
+    /*alert("check location  is CALLED:");*/
+    this.diagnostic.isLocationEnabled().then(
+      (isAvailable) => {
+        if(!isAvailable){
+          this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(() =>{
+            this.location = JSON.stringify(this.locations.load());
+            this.loading.dismiss();
+          },error => alert('Error requesting location permissions'+ error)
+        );  
+      }else{
+        this.location = JSON.stringify(this.locations.load()); 
+        this.loading.dismiss(); 
+        // alert('location already enable ');
+      }
+    }).catch( e => {
+      console.log(e);
+      alert('Enable location ' + JSON.stringify(e));
+    });
+  }
+
+  ionViewDidLoad(){
     this.location = JSON.stringify(this.locations.load());
-    this.loading.dismiss();
     /*development purpose. Remove or comment when deploying or building to device*/
     console.log('ionViewDidLoad ListPage');
     console.log(this.location);
-   }
+  }
+
   ionViewWillEnter() {
+    this.locationcheck();
+    this.loading.dismiss();
     this.superTabsCtrl.showToolbar(true);
     this.superTabsCtrl.enableTabsSwipe(true);
+
     this.storage.get('userProfile').then((data)=>{
       this.userProfile = data;
       console.log('UserProfile storage'+JSON.stringify(this.userProfile));
+    }).catch(err=>{
+      alert(JSON.stringify(err)+'Storage error');
     });
   }
 
@@ -93,9 +93,9 @@ locationcheck() {
   opnMap(){
     this.navCtrl.push(MapPage);
   }
-  favStore(store){
 
-      let fav_store={ user_id:this.userProfile.id , device_id:this.device.uuid , s_id:store.s_id }  
+  favStore(store){
+    let fav_store={ user_id:this.userProfile.id , device_id:this.device.uuid , s_id:store.s_id }  
     this.provider.addFavStore(fav_store).subscribe(data => {
       console.log('Data inside Add to fav store '+JSON.stringify(data.result));
       if(data.result == 'success'){
@@ -123,6 +123,5 @@ locationcheck() {
     },error => {
       console.log("Error inside Wishlist is"+JSON.stringify(error));
     });
-
-    }
+  }
 }
