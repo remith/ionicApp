@@ -34,7 +34,8 @@ export class SignupPage implements OnInit {
       pswd: new FormControl('' , [Validators.required]),
       c_pswd: new FormControl('' , [Validators.required]),
       phone_no: new FormControl(),
-      device_id: new FormControl(this.device.uuid)
+      device_id: new FormControl(this.device.uuid),
+      terms:new FormControl()
     });
   }
 

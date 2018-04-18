@@ -84,7 +84,7 @@ export class ProfilePage {
     this.user = new FormGroup({
     email: new FormControl('', [Validators.required]),
     pswd: new FormControl('', [Validators.required, Validators.maxLength(10)])
-    
+//    remember: new FormControl()
     });
 
   }
@@ -116,6 +116,10 @@ export class ProfilePage {
       },error => {
         console.log("Error is"+JSON.stringify(error));
     }); // error path
+  }
+
+  forgotPassword(){
+    console.log('Forgot password clicked!');
   }
 
   openSignup(){

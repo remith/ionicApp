@@ -58,7 +58,7 @@ export class StorelistPage {
         // alert('location already enable ');
       }
     }).catch( e => {
-      console.log(e);
+     // console.log(e);
       alert('Enable location ' + JSON.stringify(e));
     });
   }
@@ -66,8 +66,8 @@ export class StorelistPage {
   ionViewDidLoad(){
     this.location = JSON.stringify(this.locations.load());
     /*development purpose. Remove or comment when deploying or building to device*/
-    console.log('ionViewDidLoad ListPage');
-    console.log(this.location);
+   // console.log('ionViewDidLoad ListPage');
+   // console.log(this.location);
   }
 
   ionViewWillEnter() {
@@ -78,7 +78,7 @@ export class StorelistPage {
 
     this.storage.get('userProfile').then((data)=>{
       this.userProfile = data;
-      console.log('UserProfile storage'+JSON.stringify(this.userProfile));
+     // console.log('UserProfile storage'+JSON.stringify(this.userProfile));
     }).catch(err=>{
       alert(JSON.stringify(err)+'Storage error');
     });
@@ -97,7 +97,7 @@ export class StorelistPage {
   favStore(store){
     let fav_store={ user_id:this.userProfile.id , device_id:this.device.uuid , s_id:store.s_id }  
     this.provider.addFavStore(fav_store).subscribe(data => {
-      console.log('Data inside Add to fav store '+JSON.stringify(data.result));
+     // console.log('Data inside Add to fav store '+JSON.stringify(data.result));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Store added as favourite',
@@ -121,7 +121,7 @@ export class StorelistPage {
         });toast.present();
       }
     },error => {
-      console.log("Error inside Wishlist is"+JSON.stringify(error));
+     // console.log("Error inside Wishlist is"+JSON.stringify(error));
     });
   }
 }

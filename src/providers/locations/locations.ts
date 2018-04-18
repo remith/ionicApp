@@ -11,7 +11,7 @@ export class LocationsProvider {
      private url="http://sitepro.shreewebs.com/Abhilasha/ecommerce/api/Products/all_Details?X-API-KEY=CODEX@123";
 
   constructor(public http: Http ,private geolocation: Geolocation) {
-    console.log('Hello LocationsProvider Provider');
+   // console.log('Hello LocationsProvider Provider');
     /*this.getCurrentPosition();*/
   }
 
@@ -25,7 +25,7 @@ export class LocationsProvider {
  
             this.http.get(this.url).map(res => res.json()).subscribe(data => {
                this.geolocation.getCurrentPosition().then((resp) => {
-                   console.log('database data is '+ JSON.stringify(data));
+                  // console.log('database data is '+ JSON.stringify(data));
                  let position = { lat:resp.coords.latitude, lng:resp.coords.longitude};
                  //console.log('data.locations'+data);
                  this.data = this.applyHaversine(data,position);
@@ -34,7 +34,7 @@ export class LocationsProvider {
                  });
                  resolve(this.data);
                  }).catch((error) => {
-                    console.log('Error getting location inside httpget', error);
+                    //console.log('Error getting location inside httpget', error);
                 });
             });
  
@@ -43,7 +43,7 @@ export class LocationsProvider {
 
      applyHaversine(locations, usersLocation){
 
-       console.log('user latitude is '+usersLocation.lat);
+      // console.log('user latitude is '+usersLocation.lat);
         locations.map((location) => {
  
             let placeLocation = {
