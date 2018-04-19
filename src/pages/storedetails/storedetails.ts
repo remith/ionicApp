@@ -36,7 +36,7 @@ export class StoredetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,private callNumber: CallNumber ,private launchNavigator: LaunchNavigator ,private geolocation: Geolocation,public provider:RestProvider, private storage:Storage, private device:Device, public toastCtrl:ToastController, private superTabsCtrl: SuperTabsController) {
     this.selectedItem = navParams.get('item');
-    console.log('this.selectedItem.s_sliderImages is '+this.selectedItem.s_imageUrl);
+  //  console.log('this.selectedItem.s_sliderImages is '+this.selectedItem.s_imageUrl);
     this.sliderImage = JSON.parse(this.selectedItem.s_sliderImages);
   }
 
@@ -45,14 +45,14 @@ export class StoredetailsPage {
     this.superTabsCtrl.enableTabsSwipe(false);
     this.storage.get('userProfile').then((data)=>{
       this.userProfile = data;
-      console.log('UserProfile storage'+JSON.stringify(this.userProfile));
+     // console.log('UserProfile storage'+JSON.stringify(this.userProfile));
     });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StoredetailsPage');
+ //   console.log('ionViewDidLoad StoredetailsPage');
     //console.log('Selected Item'+JSON.stringify(this.selectedItem));
-    console.log(this.selectedItem.category.length);
+  //  console.log(this.selectedItem.category.length);
 
   }
 
@@ -63,7 +63,7 @@ export class StoredetailsPage {
   addToCart(item){
     let cartItems={p_id:item.p_id, p_name:item.p_name, p_quantity:++item.p_quantity, s_id:this.selectedItem.s_id, device_id:this.device.uuid, u_id:this.userProfile.id}
     this.provider.addToCart(cartItems).subscribe(data => {
-      console.log('Data inside Add to cart is '+JSON.stringify(data));
+  //    console.log('Data inside Add to cart is '+JSON.stringify(data));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Product added to cart successfully',
@@ -80,14 +80,14 @@ export class StoredetailsPage {
         });toast.present();
       }
     },error => {
-      console.log("Error inside Addtocart is"+JSON.stringify(error));
+  //    console.log("Error inside Addtocart is"+JSON.stringify(error));
     });
   }
 
   addToWishlist(item){
     let wishlistItems={p_id:item.p_id, s_id:this.selectedItem.s_id, device_id:this.device.uuid, u_id:this.userProfile.id}
     this.provider.addToWishlist(wishlistItems).subscribe( data => {
-      console.log('Data inside Add to wishlist '+JSON.stringify(data));
+   //   console.log('Data inside Add to wishlist '+JSON.stringify(data));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Product added to wishlist',
@@ -111,14 +111,14 @@ export class StoredetailsPage {
         });toast.present();
       }
     }, error => {
-      console.log("Error inside Wishlist is"+JSON.stringify(error));
+  //    console.log("Error inside Wishlist is"+JSON.stringify(error));
     });
   }
 
   addFavStore(){
     let fav_store={ user_id:this.userProfile.id , device_id:this.device.uuid , s_id:this.selectedItem.s_id }  
     this.provider.addFavStore(fav_store).subscribe(data => {
-      console.log('Data inside Add to fav store '+JSON.stringify(data.result));
+    //  console.log('Data inside Add to fav store '+JSON.stringify(data.result));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Store added as favourite',
@@ -142,7 +142,7 @@ export class StoredetailsPage {
         });toast.present();
       }
     },error => {
-      console.log("Error inside Wishlist is"+JSON.stringify(error));
+   //   console.log("Error inside Wishlist is"+JSON.stringify(error));
     });
   }
 
@@ -150,7 +150,7 @@ export class StoredetailsPage {
     --item.p_quantity;
     let r_item = {p_id:item.p_id ,s_id:this.selectedItem.s_id,device_id:this.device.uuid, user_id:this.userProfile.id}
     this.provider.removeFromCart(r_item).subscribe(data => {
-      console.log(' Data inside Add to cart is '+JSON.stringify(data));
+    //  console.log(' Data inside Add to cart is '+JSON.stringify(data));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Product deleted from cart',
@@ -167,13 +167,13 @@ export class StoredetailsPage {
         }); toast.present();
       }
     },error => {
-      console.log("Error inside removeFromCart is"+JSON.stringify(error));
+   //   console.log("Error inside removeFromCart is"+JSON.stringify(error));
     });
   }
    
   showDirection() {
-      console.log('latitude '+this.selectedItem.s_latitude);
-      console.log('lngitude '+this.selectedItem.s_longitude);
+   //   console.log('latitude '+this.selectedItem.s_latitude);
+   //   console.log('lngitude '+this.selectedItem.s_longitude);
       this.geolocation.getCurrentPosition().then((resp) => {
          let dest= [this.selectedItem.s_latitude, this.selectedItem.s_longitude];
          let options: LaunchNavigatorOptions = {

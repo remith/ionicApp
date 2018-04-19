@@ -30,7 +30,7 @@ export class ProductlistPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductlistPage');
+//    console.log('ionViewDidLoad ProductlistPage');
 
   }
   itemSelected(item){

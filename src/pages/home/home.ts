@@ -29,10 +29,10 @@ export class HomePage {
   getImages(){
     this.provider.homeSlider()
     .subscribe(data=>{
-      console.log(data[0].homeImage);
+      //console.log(data[0].homeImage);
     this.sliderImg=JSON.parse(data[0].homeImage);
      //console.log('sliderImg '+JSON.stringify(this.sliderImg.homeImage));
-     console.log(this.sliderImg);
+     //console.log(this.sliderImg);
     })
   }
 

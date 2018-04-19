@@ -31,11 +31,11 @@ export class MywishlistPage {
   viewMyWishlist(){
 
     this.provider.viewWishlist(this.device.uuid,this.user_id).subscribe(data=>{
-       console.log(JSON.stringify(data))
+    //   console.log(JSON.stringify(data))
        if(!data.result){
          this.wishlistItems = data;
             console.log('Data inside my wishlist' + JSON.stringify(this.wishlistItems));
-          console.log('Data results'+data.result);
+       //   console.log('Data results'+data.result);
        }
 
        else if (data.result =='no products in your wishlist')
@@ -57,7 +57,7 @@ export class MywishlistPage {
 
   removeFromWishlist(item){
   	this.removeitem={p_id:item.p_id, device_id:this.device.uuid, u_id:this.user_id,s_id:item.s_id }
-    console.log('Data remove '+JSON.stringify(this.removeitem));
+  //  console.log('Data remove '+JSON.stringify(this.removeitem));
   	this.provider.addToWishlist(this.removeitem)
         .subscribe(
             data => {
@@ -89,7 +89,7 @@ export class MywishlistPage {
               }
             }, // success path
           error => {
-            console.log("Error inside Wishlist is"+JSON.stringify(error));
+      //      console.log("Error inside Wishlist is"+JSON.stringify(error));
           }); // error path
 
 
@@ -98,7 +98,7 @@ export class MywishlistPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MywishlistPage');
+  //  console.log('ionViewDidLoad MywishlistPage');
   }
 
 }

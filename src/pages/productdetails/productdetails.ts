@@ -18,32 +18,32 @@ export class ProductdetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
   	this.selectedProduct =this.navParams.get('item');
-  	console.log('Data is : ' +JSON.stringify(this.selectedProduct));
+  //	console.log('Data is : ' +JSON.stringify(this.selectedProduct));
   	this.sliderImages = JSON.parse(this.selectedProduct.p_sliderImages); 
-  	console.log('Slider Images: ' +JSON.stringify(this.sliderImages));
+  //	console.log('Slider Images: ' +JSON.stringify(this.sliderImages));
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductdetailsPage');
+//    console.log('ionViewDidLoad ProductdetailsPage');
   }
 
   showDetails(id){
 
-  	console.log('Id is :' +id);
+//  	console.log('Id is :' +id);
 
   	if(id ==='one') {
 
   		
   		this.data=this.selectedProduct.p_measurement;
   		this.data1 = null;this.data2=null;this.data3=null;
-  		console.log('Data is ' +this.data);
+ // 		console.log('Data is ' +this.data);
 
   	}
   	else if(id ==='two'){
   		let d={ data:'Delevery within 36hrs'}
   		this.data1=d;
-  		console.log('Data is ' +this.data1);
+  //		console.log('Data is ' +this.data1);
   		this.data = null;this.data2=null;this.data3=null;
 
   	}
@@ -51,14 +51,14 @@ export class ProductdetailsPage {
   	else if(id ==='three'){
   		let d={ name:'Data2'}
   		this.data=d;
-  		console.log('Data is ' +this.data);
+  //		console.log('Data is ' +this.data);
 
   	}
 
   	else if(id ==='four'){
   		let d={ name:'Data3'}
   		this.data=d;
-  		console.log('Data is ' +this.data);
+  //		console.log('Data is ' +this.data);
 
   	}
   }

@@ -22,7 +22,7 @@ export class RestProvider {
   
 	public responseData:string;
   constructor(public http: HttpClient) {
-    console.log('Hello RestProvider Provider');
+    //console.log('Hello RestProvider Provider');
   }
 
   homeSlider(){
@@ -50,19 +50,19 @@ export class RestProvider {
       catchError(this.handleError));
   }
   addToCart(data:any){
-    console.log("Data inside rest Cartitems"+JSON.stringify(data));
+    //console.log("Data inside rest Cartitems"+JSON.stringify(data));
     return this.http.post(this.url2 +'/cart', JSON.stringify(data) , httpOptions).pipe(
       catchError(this.handleError));
   }
 
   removeFromCart(data:any){
-    console.log("Data inside rest remove from cart"+JSON.stringify(data));
+    //console.log("Data inside rest remove from cart"+JSON.stringify(data));
     return this.http.post( this.url2 + '/cart_delete' , JSON.stringify(data) , httpOptions).pipe(
         catchError(this.handleError));
   }
 
   addToWishlist(data:any){
-    console.log("Data inside rest remove from cart"+JSON.stringify(data));
+    //console.log("Data inside rest remove from cart"+JSON.stringify(data));
     return this.http.post( this.url2 + '/wishlist' , JSON.stringify(data) , httpOptions).pipe(
         catchError(this.handleError));
   }
@@ -75,7 +75,7 @@ export class RestProvider {
   }
 
   getFavStore(user_id,dev_id){
-    console.log("Device id is" +dev_id);
+    //console.log("Device id is" +dev_id);
     let data = {user_id:user_id,device_id:dev_id}
     return this.http.post( this.url2 + '/get_fav_shop', JSON.stringify(data) ,httpOptions).pipe(
       catchError(this.handleError));
@@ -89,7 +89,7 @@ export class RestProvider {
 
    
   addFavStore(data:any){
-    console.log('Data inside rest addFavStore' +JSON.stringify(data));
+    //console.log('Data inside rest addFavStore' +JSON.stringify(data));
 
     return this.http.post( this.url2+'/fav_store',JSON.stringify(data) ,httpOptions)
           .pipe(
@@ -98,8 +98,8 @@ export class RestProvider {
   }
   private extractData(res: Response) {
     let body = res;
-    console.log('res is' + res);
-    console.log('body is' + body);
+    //console.log('res is' + res);
+    //console.log('body is' + body);
     return body || [];
   }
 
@@ -112,7 +112,7 @@ export class RestProvider {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
+    //console.error(errMsg);
     return Observable.throw(errMsg);
   }
 

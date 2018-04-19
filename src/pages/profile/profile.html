@@ -1,9 +1,9 @@
 <ion-content padding>
   <div *ngIf="!userProfile">
-    <div class="logoimg " >
+    <div class="logoimg" >
       <img src="assets/imgs/logo.png" />
     </div>
-      <form no-validate [formGroup]="user" >
+      <form no-validate [formGroup]="user">
         <ion-item>
           <ion-label><ion-icon ios="ios-mail-outline" md="md-mail" color="primary"></ion-icon></ion-label>
           <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
@@ -16,11 +16,12 @@
 
         <ion-item no-lines>
         <ion-row>
-          <ion-col>           
-                <button ion-button type="submit" (click)= "login()" full round>Login</button>
+          <ion-col>
+            <button ion-button type="submit" (click)= "login()"
+                [disabled]="!user.valid" full round>Login</button>
           </ion-col>
           <ion-col>           
-                <button ion-button type="reset" full round>Reset!</button>
+            <button ion-button type="reset" full round>Reset!</button>
           </ion-col>
         </ion-row>
       </ion-item>

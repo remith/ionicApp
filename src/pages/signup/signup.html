@@ -2,56 +2,70 @@
   <ion-col>
     <img src="assets/imgs/logo.png">
   </ion-col>
-<form novalidate  [formGroup]=" user " >
-<div class="input">
-<ion-item class='fields'>
+<form [formGroup]="user" >
+
+<ion-item>
   <ion-label>
-    <ion-icon ios="ios-contact-outline" md="md-contact" color="ibuddi">
+    <ion-icon ios="ios-contact-outline" md="md-contact" color="primary">
     </ion-icon>
   </ion-label>
-  <ion-input type="text" placeholder="Full Name" formControlName="name">
+  <ion-input type="text" placeholder="Full Name" [formControl]="user.controls['name']">
   </ion-input>
 </ion-item>
 
-<ion-item class='fields'>
+<ion-item>
   <ion-label>
-    <ion-icon ios="ios-mail-outline" md="md-mail" color="ibuddi">
+    <ion-icon ios="ios-mail-outline" md="md-mail" color="primary">
     </ion-icon>
   </ion-label>
-  <ion-input type="text" placeholder="Email" formControlName="email">
+  <ion-input type="email" placeholder="Email" [formControl]="user.controls['email']">
   </ion-input>
 </ion-item>
+<div *ngIf="!user.controls.email.valid && user.controls.email.dirty"
+  class="validator-error">
+  Please enter a valid email.
+</div>
 
-<ion-item class='fields'>
+<ion-item>
   <ion-label >
-    <ion-icon ios="ios-call-outline" md="md-call" color="ibuddi">
+    <ion-icon ios="ios-call-outline" md="md-call" color="primary">
     </ion-icon>
   </ion-label>
-  <ion-input type="number" placeholder="Mobile No " formControlName="phone_no"></ion-input>
+  <ion-input type="number" placeholder="Mobile No " [formControl]="user.controls['phone_no']"></ion-input>
 </ion-item>
 
-<ion-item class='fields'>
-  <ion-label ><ion-icon ios="ios-lock-outline" md="md-lock" color="ibuddi"></ion-icon></ion-label>
-  <ion-input type="password" placeholder="Password" formControlName="pswd"></ion-input>
+<ion-item>
+  <ion-label ><ion-icon ios="ios-lock-outline" md="md-lock" color="primary"></ion-icon></ion-label>
+  <ion-input type="password" placeholder="Password" [formControl]="user.controls['pswd']"></ion-input>
 </ion-item>
+<div *ngIf="!user.controls.pswd.valid && user.controls.pswd.dirty" class="validator-error">
+  Passwords should be at least 8 characters long and contain one number,
+  one character and one special character.
+</div>
 
-<ion-item class='fields'>
+<ion-item>
   <ion-label >
-    <ion-icon ios="ios-lock-outline" md="md-lock" color="ibuddi">
+    <ion-icon ios="ios-lock-outline" md="md-lock" color="primary">
     </ion-icon>
   </ion-label>
-  <ion-input type="password" placeholder="Confirm Password" formControlName="c_pswd">
+  <ion-input type="password" placeholder="Confirm Password" [formControl]="user.controls['c_pswd']">
   </ion-input>
 </ion-item>
+<div *ngIf="user.controls.c_pswd.touched && user.hasError('mismatchedPasswords') && user.controls.pswd.valid" class="validator-error">
+  Passwords do not match
+</div>
 
-</div><br>
-<ion-row padding>
-  <input type="checkbox">&nbsp;&nbsp;Agree to the &nbsp;<font color="red"> terms and Conditions</font><br>
-</ion-row><br>
+<ion-item no-lines>
+  <ion-label color="primary">I accept terms and conditions</ion-label>
+  <ion-checkbox [formControl]="user.controls['terms']" ></ion-checkbox>
+</ion-item>
+<div *ngIf= "!user.controls.terms.valid" class="validator-error">
+  Please accept the terms & conditions
+</div>
 
-  <ion-row>    
-    <button ion-button type="submit" (click)=" signupUser() " color="ibuddi" full round>Create Account</button>
-  </ion-row>          
+  <button ion-button type="submit" (click)=" signupUser() " [disabled]="!user.valid" color="primary" block round outline>Create Account
+  </button>
+  
 
 </form>
 

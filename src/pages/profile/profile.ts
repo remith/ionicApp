@@ -2,7 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { AppState } from '../../app/app.global';
-import { FormControl, Validators, FormGroup} from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage';
@@ -14,6 +14,13 @@ import firebase from 'firebase';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook } from '@ionic-native/facebook';
 import { SuperTabsController } from 'ionic2-super-tabs';
+
+const PURE_EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const PASSWORD_REGEXP = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+export const regexValidators = {
+  email: PURE_EMAIL_REGEXP,
+  password: PASSWORD_REGEXP
+};
 
 @IonicPage()
 @Component({
@@ -41,9 +48,14 @@ export class ProfilePage {
     private device:Device,
     private googlePlus: GooglePlus,
     private facebook:Facebook,
-    private superTabsCtrl: SuperTabsController) {
+    private superTabsCtrl: SuperTabsController,
+    private formBuilder: FormBuilder) {
     this.getStorage();
     
+    this.user = this.formBuilder.group({
+      email:['', Validators.compose([Validators.pattern(regexValidators.email), Validators.required])],
+      pswd:['',Validators.required]
+    })
 
 
     //this.fbLoginStatus();
@@ -53,7 +65,7 @@ export class ProfilePage {
     this.storage.get('userProfile').then(data=>{
 
       this.userProfile = data;
-      console.log('Storage Data'+ this.userProfile );
+  //    console.log('Storage Data'+ this.userProfile );
       
     }).catch(err=>{
         alert('Error is '+err);
@@ -79,26 +91,26 @@ export class ProfilePage {
     });  
   }
 
-  ngOnInit() {
+  // ngOnInit() {
     
-    this.user = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    pswd: new FormControl('', [Validators.required, Validators.maxLength(10)])
+  //   this.user = new FormGroup({
+  //   email: new FormControl('', [Validators.required]),
+  //   pswd: new FormControl('', [Validators.required, Validators.maxLength(10)])
     
-    });
+  //   });
 
-  }
+  // }
 
   login(){
   	this.provider.login(this.user.value)
     .subscribe(
       data => {
-        console.log('user data is'+ JSON.stringify(data.userdata));
+    //    console.log('user data is'+ JSON.stringify(data.userdata));
         if(data.result == "true"){
           if(data.userdata.roleId === "3"){
             this.userProfile = {id:data.userdata.user_id, name:data.userdata.name, picture:data.userdata.imageUrl, email:data.userdata.email, provider:'ibuddi', role:'admin'}    
             this.storage.set('userProfile',this.userProfile);
-            console.log('userProfile' +JSON.stringify(this.userProfile));
+      //      console.log('userProfile' +JSON.stringify(this.userProfile));
           }
           else if(data.userdata.roleId === "4"){
             this.userProfile = {id:data.userdata.user_id, name:data.userdata.name, picture:data.userdata.imageUrl, email:data.userdata.email,provider:'ibuddi', role:'seller'}
@@ -111,10 +123,10 @@ export class ProfilePage {
         }
         else{
           alert(data.message);
-          console.log('Role Id'+data.userdata);
+      //    console.log('Role Id'+data.userdata);
         }
       },error => {
-        console.log("Error is"+JSON.stringify(error));
+ //       console.log("Error is"+JSON.stringify(error));
     }); // error path
   }
 
@@ -179,9 +191,9 @@ export class ProfilePage {
 
   googleLogout(){
     firebase.auth().signOut().then(data=>{
-      console.log('signout Successful');
+  //    console.log('signout Successful');
     }).catch(err=>{
-      console.log('Error is '+JSON.stringify(err));
+  //    console.log('Error is '+JSON.stringify(err));
     });
   }
 

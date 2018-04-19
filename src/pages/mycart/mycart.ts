@@ -32,7 +32,7 @@ export class MycartPage {
 
   ionViewDidLoad() {
 
-    console.log('ionViewDidLoad MycartPage');
+  //  console.log('ionViewDidLoad MycartPage');
 
 
   }
@@ -44,13 +44,13 @@ export class MycartPage {
 
   viewCart(){
 
-    console.log('user_id' +JSON.stringify(this.user_id));
+  //  console.log('user_id' +JSON.stringify(this.user_id));
     this.provider.viewCart(this.device.uuid,this.user_id)
       .subscribe(data=>{
          if(!data.result){
          this.cartItems = data;
-         console.log('Data inside mycart viewCart' + JSON.stringify(this.cartItems));
-          console.log('Cart Items Measurements '+this.cartItems[0].p_measurement);
+     //    console.log('Data inside mycart viewCart' + JSON.stringify(this.cartItems));
+      //    console.log('Cart Items Measurements '+this.cartItems[0].p_measurement);
        }
        else if (data.result=='no products in your cart')
        {
@@ -63,7 +63,7 @@ export class MycartPage {
           this.navCtrl.setRoot(ProfilePage);
        }
     },err=>{
-      console.log('Error is'+ err );
+   //   console.log('Error is'+ err );
     });
 
 
@@ -72,9 +72,9 @@ export class MycartPage {
   removeFromCart(item){
 
     let cart_item={p_id:item.p_id,user_id:item.user_id,device_id:this.device.uuid,s_id:item.s_id}
-    console.log('item is' +JSON.stringify(cart_item));
+ //   console.log('item is' +JSON.stringify(cart_item));
      this.provider.removeFromCart(item).subscribe(data => {
-      console.log(' Data inside Add to cart is '+JSON.stringify(data));
+   //   console.log(' Data inside Add to cart is '+JSON.stringify(data));
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Product deleted from cart',
@@ -90,7 +90,7 @@ export class MycartPage {
         }); toast.present();
       }
     },error => {
-      console.log("Error inside removeFromCart is"+JSON.stringify(error));
+   //   console.log("Error inside removeFromCart is"+JSON.stringify(error));
     });
   }  
 
@@ -102,7 +102,7 @@ export class MycartPage {
         this.tot_price = this.tot_price + this.cartItems[i].p_sellPrice * this.cartItems[i].p_quantity;
       }
 
-      console.log('Cart Price'+this.tot_price);
+   //   console.log('Cart Price'+this.tot_price);
     this.navCtrl.push(CheckoutPage ,this.cartItems);
 
   }
