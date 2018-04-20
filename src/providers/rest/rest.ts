@@ -89,7 +89,11 @@ export class RestProvider {
 
    
   addFavStore(data:any){
+<<<<<<< HEAD
     //console.log('Data inside rest addFavStore' +JSON.stringify(data));
+=======
+  //  console.log('Data inside rest addFavStore' +JSON.stringify(data));
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 
     return this.http.post( this.url2+'/fav_store',JSON.stringify(data) ,httpOptions)
           .pipe(
@@ -98,8 +102,13 @@ export class RestProvider {
   }
   private extractData(res: Response) {
     let body = res;
+<<<<<<< HEAD
     //console.log('res is' + res);
     //console.log('body is' + body);
+=======
+  //  console.log('res is' + res);
+  //  console.log('body is' + body);
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
     return body || [];
   }
 
@@ -112,7 +121,11 @@ export class RestProvider {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
+<<<<<<< HEAD
     //console.error(errMsg);
+=======
+  //  console.error(errMsg);
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
     return Observable.throw(errMsg);
   }
 

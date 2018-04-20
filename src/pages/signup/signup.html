@@ -2,7 +2,11 @@
   <ion-col>
     <img src="assets/imgs/logo.png">
   </ion-col>
+<<<<<<< HEAD
 <form [formGroup]="user" >
+=======
+<form novalidate  [formGroup]="user" >
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 
 <ion-item>
   <ion-label>
@@ -36,7 +40,11 @@
 
 <ion-item>
   <ion-label ><ion-icon ios="ios-lock-outline" md="md-lock" color="primary"></ion-icon></ion-label>
+<<<<<<< HEAD
   <ion-input type="password" placeholder="Password" [formControl]="user.controls['pswd']"></ion-input>
+=======
+  <ion-input type="password" placeholder="Password" formControlName="pswd"></ion-input>
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 </ion-item>
 <div *ngIf="!user.controls.pswd.valid && user.controls.pswd.dirty" class="validator-error">
   Passwords should be at least 8 characters long and contain one number,
@@ -55,6 +63,7 @@
   Passwords do not match
 </div>
 
+<<<<<<< HEAD
 <ion-item no-lines>
   <ion-label color="primary">I accept terms and conditions</ion-label>
   <ion-checkbox [formControl]="user.controls['terms']" ></ion-checkbox>
@@ -66,6 +75,14 @@
   <button ion-button type="submit" (click)=" signupUser() " [disabled]="!user.valid" color="primary" block round outline>Create Account
   </button>
   
+=======
+<ion-item no-lines class="terms">
+  <ion-label >Agree to Terms & Conditions</ion-label>
+  <ion-checkbox formControlName="terms" color="vibrant" no-padding></ion-checkbox>
+</ion-item>
+
+  <button ion-button full round type="submit" (click)="signupUser()" [disabled]="!user.valid" color="primary" >Create Account</button>      
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 
 </form>
 

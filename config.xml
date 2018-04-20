@@ -87,13 +87,14 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <allow-navigation href="http://192.168.0.110:8100" />
+    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.2.8">
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.19" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCFvcrod4Sa8bDWJ69URNJhV27uzBut4LI" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyBkBgDba2twmQDs7kan5HsCR8OGxvD-5qs" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
@@ -102,13 +103,12 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.2" />
     <plugin name="cordova-plugin-uniquedeviceid" spec="^1.3.2" />
-    <plugin name="cordova.plugins.diagnostic" spec="^4.0.3" />
+    <plugin name="cordova.plugins.diagnostic" spec="^4.0.5" />
     <plugin name="cordova-plugin-googleplus" spec="^5.2.3" />
     <plugin name="cordova-plugin-facebook4" spec="git+https://github.com/jeduan/cordova-plugin-facebook4.git">
         <variable name="APP_ID" value="1557494864383609" />
         <variable name="APP_NAME" value="ibuddi" />
     </plugin>
-    <plugin name="call-number" spec="https://github.com/Rohfosho/CordovaCallNumberPlugin" />
+    <plugin name="call-number" spec="git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git" />
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.2.0" />
-    <engine name="android" spec="7.0.0" />
 </widget>

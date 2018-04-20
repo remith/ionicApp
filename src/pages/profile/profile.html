@@ -3,22 +3,41 @@
     <div class="logoimg" >
       <img src="assets/imgs/logo.png" />
     </div>
+<<<<<<< HEAD
       <form no-validate [formGroup]="user">
         <ion-item>
           <ion-label><ion-icon ios="ios-mail-outline" md="md-mail" color="primary"></ion-icon></ion-label>
           <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
         </ion-item>
+=======
+    <form no-validate [formGroup]="user" >
+      <ion-item>
+        <ion-label><ion-icon ios="ios-mail-outline" md="md-mail" color="primary"></ion-icon></ion-label>
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label><ion-icon ios="ios-key-outline" md="md-key" color="primary"></ion-icon></ion-label>
-          <ion-input type="password" placeholder="Password" formControlName="pswd"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label><ion-icon ios="ios-key-outline" md="md-key" color="primary"></ion-icon></ion-label>
+        <ion-input type="password" placeholder="Password" formControlName="pswd"></ion-input>
+      </ion-item>
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 
-        <ion-item no-lines>
+<!--       <ion-item no-lines>
+        <ion-checkbox formControlName="remember" color="vibrant"></ion-checkbox>
+        <ion-label>Remember Me</ion-label>
+      </ion-item> -->
+      <p text-center color="primary" (click)="forgotPassword()" >Forgot Password?</p>
+
+      <ion-item no-lines>
         <ion-row>
+<<<<<<< HEAD
           <ion-col>
             <button ion-button type="submit" (click)= "login()"
                 [disabled]="!user.valid" full round>Login</button>
+=======
+          <ion-col>           
+            <button ion-button type="submit" [disabled]="!user.valid" (click)= "login()" full round>Login</button>
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
           </ion-col>
           <ion-col>           
             <button ion-button type="reset" full round>Reset!</button>
@@ -26,18 +45,12 @@
         </ion-row>
       </ion-item>
         <button ion-button round outline block (click)="facebookLogin()" color="facebook">Facebook</button>
- 
         <button ion-button round outline block (click)="openSignup()">Register</button>
-
-
-
-
-      </form>
+    </form>    
   </div>
  
   <div *ngIf="userProfile">
     <ion-card>
-        
       <ion-card-header><p padding float-right (click)="logout()"><ion-icon name="log-out" ></ion-icon>Logout</p></ion-card-header>
       <ion-card-content no-padding>
         <ion-row no-padding>
@@ -47,13 +60,12 @@
           <ion-col>
             <p>{{userProfile.name}}</p>
             <p *ngIf="userProfile.email">{{userProfile.email}}</p>
-<!--          <p *ngIf="userProfile.gender">{{userProfile.gender}}</p>
-              <p *ngIf="userProfile.role">Role: {{userProfile.role}}</p>
-              <p *ngIf="userProfile.provider">
-              Auth Provider:{{userProfile.provider}}</p> -->
+  <!--      <p *ngIf="userProfile.gender">{{userProfile.gender}}</p>
+            <p *ngIf="userProfile.role">Role: {{userProfile.role}}</p>
+            <p *ngIf="userProfile.provider">
+             Auth Provider:{{userProfile.provider}}</p> -->
           </ion-col>
-        </ion-row>
-        
+        </ion-row>    
       </ion-card-content>
     </ion-card>
     <!-- <ion-row>

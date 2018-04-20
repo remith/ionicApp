@@ -58,7 +58,11 @@ export class StorelistPage {
         // alert('location already enable ');
       }
     }).catch( e => {
+<<<<<<< HEAD
   //    console.log(e);
+=======
+     // console.log(e);
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
       alert('Enable location ' + JSON.stringify(e));
     });
   }
@@ -66,8 +70,13 @@ export class StorelistPage {
   ionViewDidLoad(){
     this.location = JSON.stringify(this.locations.load());
     /*development purpose. Remove or comment when deploying or building to device*/
+<<<<<<< HEAD
   //  console.log('ionViewDidLoad ListPage');
  //   console.log(this.location);
+=======
+   // console.log('ionViewDidLoad ListPage');
+   // console.log(this.location);
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
   }
 
   ionViewWillEnter() {
@@ -78,7 +87,11 @@ export class StorelistPage {
 
     this.storage.get('userProfile').then((data)=>{
       this.userProfile = data;
+<<<<<<< HEAD
    //   console.log('UserProfile storage'+JSON.stringify(this.userProfile));
+=======
+     // console.log('UserProfile storage'+JSON.stringify(this.userProfile));
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
     }).catch(err=>{
       alert(JSON.stringify(err)+'Storage error');
     });
@@ -97,7 +110,11 @@ export class StorelistPage {
   favStore(store){
     let fav_store={ user_id:this.userProfile.id , device_id:this.device.uuid , s_id:store.s_id }  
     this.provider.addFavStore(fav_store).subscribe(data => {
+<<<<<<< HEAD
   //    console.log('Data inside Add to fav store '+JSON.stringify(data.result));
+=======
+     // console.log('Data inside Add to fav store '+JSON.stringify(data.result));
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
       if(data.result == 'success'){
         let toast = this.toastCtrl.create({
           message: 'Store added as favourite',
@@ -121,7 +138,11 @@ export class StorelistPage {
         });toast.present();
       }
     },error => {
+<<<<<<< HEAD
   //    console.log("Error inside Wishlist is"+JSON.stringify(error));
+=======
+     // console.log("Error inside Wishlist is"+JSON.stringify(error));
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
     });
   }
 }

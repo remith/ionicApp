@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/remith/Documents/MyWorks/ionic/ionic-new/git/ionicEcom/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/remith/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b70722f3b51d0069cf4de27af4a71ad0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -29,7 +29,11 @@ export class HomePage {
   getImages(){
     this.provider.homeSlider()
     .subscribe(data=>{
+<<<<<<< HEAD
       //console.log(data[0].homeImage);
+=======
+      ///console.log(data[0].homeImage);
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
     this.sliderImg=JSON.parse(data[0].homeImage);
      //console.log('sliderImg '+JSON.stringify(this.sliderImg.homeImage));
      //console.log(this.sliderImg);

@@ -64,8 +64,14 @@ export class SignupPage implements OnInit {
       pswd: new FormControl('' , [Validators.required]),
       c_pswd: new FormControl('' , [Validators.required]),
       phone_no: new FormControl(),
+<<<<<<< HEAD
       device_id: new FormControl(this.device.uuid)
     });*/
+=======
+      device_id: new FormControl(this.device.uuid),
+      terms:new FormControl()
+    });
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
   }
 
   ionViewWillEnter(){

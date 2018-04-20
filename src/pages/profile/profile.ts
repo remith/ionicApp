@@ -93,11 +93,19 @@ export class ProfilePage {
 
   // ngOnInit() {
     
+<<<<<<< HEAD
   //   this.user = new FormGroup({
   //   email: new FormControl('', [Validators.required]),
   //   pswd: new FormControl('', [Validators.required, Validators.maxLength(10)])
     
   //   });
+=======
+    this.user = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    pswd: new FormControl('', [Validators.required, Validators.maxLength(10)])
+//    remember: new FormControl()
+    });
+>>>>>>> 1d8f25ceade95ff681d49275b90820f3458f81b3
 
   // }
 
@@ -128,6 +136,10 @@ export class ProfilePage {
       },error => {
  //       console.log("Error is"+JSON.stringify(error));
     }); // error path
+  }
+
+  forgotPassword(){
+    console.log('Forgot password clicked!');
   }
 
   openSignup(){

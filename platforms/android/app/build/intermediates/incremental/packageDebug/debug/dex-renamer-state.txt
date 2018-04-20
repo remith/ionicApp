@@ -1,0 +1,4 @@
+#Thu Apr 19 00:23:16 IST 2018
+base.0=/home/remith/Documents/MyWorks/ionic/ionic-new/git/ionicEcom/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+file.0=/home/remith/Documents/MyWorks/ionic/ionic-new/git/ionicEcom/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex

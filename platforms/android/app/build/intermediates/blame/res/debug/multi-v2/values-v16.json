@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/remith/Documents/MyWorks/ionic/ionic-new/git/ionicEcom/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/remith/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8b7cd38b1c1558a1f0bd11d688d9c0a2/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/home/remith/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b70722f3b51d0069cf4de27af4a71ad0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}
